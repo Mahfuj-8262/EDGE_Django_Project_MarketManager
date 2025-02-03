@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'mk_management/dashboard.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Your Dashboard</h1>
+        <div class="button-container">
+            <a href="{% url 'add_transaction' %}" class="dashboard-button">Add Transaction</a>
+            <a href="{% url 'list_transactions' %}" class="dashboard-button">List Transaction</a>
+            <a href="#" class="dashboard-button">Accounts</a>
+            <a href="{% url 'settings' %}" class="dashboard-button">Settings</a>
+
+        </div>
+    </div>
+</body>
+</html>

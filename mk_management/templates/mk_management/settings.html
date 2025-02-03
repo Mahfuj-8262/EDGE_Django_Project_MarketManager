@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+</head>
+<body>
+    <h1>Settings</h1>
+    <h2>Change Password</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ password_form.as_p }}
+        <button type="submit" name="change_password">Change Password</button>
+    </form>
+
+    {% if user.is_superuser %}
+    <h2>Add User</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="new_username">New Username:</label>
+        <input type="text" name="new_username" required>
+        <label for="new_password">New Password:</label>
+        <input type="password" name="new_password" required>
+        <button type="submit" name="add_user">Add User</button>
+    </form>
+    {% endif %}
+
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
